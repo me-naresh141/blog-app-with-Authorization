@@ -16,7 +16,7 @@
 * **css**
 * **ejs**
 # Details
-## logged USer
+## logged User
 * he in user can do all CRUD operations and like or dislike or comments. he can delete a comment.
 ## non logged User
  * he in user can not create, update,delete. 
