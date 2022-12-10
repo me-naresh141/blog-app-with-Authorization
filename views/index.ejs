@@ -1,0 +1,43 @@
+<% include partials/header%>
+
+<section class="bg-color-white-light">
+  <div class="container height-full overflow-scroll scroll-none">
+    <%article.reverse().forEach((item)=>{%>
+    <div class="pading-1rem margin-tb-1rem bg-color-white border-redius-3px">
+      <h2
+        class="font-size-1p5-rem font-weight-600 text-captilize color-green font-size-1-3rem-mq"
+      >
+        <%=item.title%>
+      </h2>
+      <div class="flex margin-tb-p5rem">
+        <figure class="profile-figure">
+          <img
+            class="full-width border-redius"
+            src="/images/<%=item.authorId.image%>"
+            alt="profile-img"
+          />
+        </figure>
+        <div class="margin-lr-p5rem">
+          <span class="font-weight-600 text-captilize color-text"
+            ><%=item.authorId.name%></span
+          >
+          <br />
+          <span class="color-text font-size-p-15-rem-mq">
+            updated:<%=item.updatedAt.toLocaleString()%></span
+          >
+        </div>
+      </div>
+      <!--  -->
+      <div>
+        <p class="font-size-1rem-mq">
+          <%=item.description.slice(0,230)%>....
+          <a class="color-green font-weight-600" href="/users/<%=item.id%>"
+            >Reed more</a
+          >
+        </p>
+      </div>
+    </div>
+    <%})%>
+  </div>
+</section>
+<% include partials/footer%>

@@ -1,0 +1,41 @@
+<% include partials/header%>
+<section class="bg-color-white-light register-section">
+  <div class="container form--main-div">
+    <!-- form -->
+    <div class="form-div width-100mq">
+      <form class="form" action="/users/<%=article.id%>" method="post">
+        <h1 class="text-center font-size-2-rem font-weight-600">
+          Edit Article
+        </h1>
+        <label for="">Title</label>
+        <input
+          type="text"
+          name="title"
+          id=""
+          placeholder="Add a title"
+          value="<%=article.title%>"
+        />
+        <label for="">Description</label>
+        <textarea
+          name="description"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder=" Add a description ..."
+        >
+ <%=article.description%></textarea
+        >
+        <label for="">catagory</label>
+        <input
+          type="text"
+          name="catagory"
+          id=""
+          placeholder="catagory"
+          value="<%=article.catagory%>"
+        />
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+<% include partials/footer%>

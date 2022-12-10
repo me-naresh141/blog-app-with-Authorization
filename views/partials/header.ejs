@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/d08fba0fb1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>blog app</title>
+  </head>
+
+  <body>
+    <header class="bg-color-black">
+      <div class="container flex justify-between align-center pading-tb-1rem">
+        <a class="color-white" href="/">Home</a>
+        <input type="checkbox" id="click" />
+        <label class="menu-btn" for="click"
+          ><i class="fa-solid fa-bars"></i
+        ></label>
+        <%if(user){%>
+        <nav class="flex align-center">
+          <ul class="flex login">
+            <a title="<%=user.name%>" href="#">
+              <figure class="profile-figure">
+                <img
+                  class="full-width border-redius"
+                  src="/images/<%=user.image%>"
+                  alt="profile-img"
+                />
+              </figure>
+            </a>
+            <a href="/users/logout"
+              ><button class="btn btn-primary margin-lr-p5rem">
+                Logout
+              </button></a
+            >
+
+            <a href="/users/<%=user._id%>/myarticle"
+              ><button class="btn btn-primary margin-lr-p5rem">
+                My articles
+              </button></a
+            >
+            <a href="/users/new"
+              ><button class="btn btn-primary margin-lr-p5rem">
+                Add article
+              </button></a
+            >
+          </ul>
+        </nav>
+        <%}else{%>
+        <nav>
+          <ul>
+            <a href="/login"><button class="btn btn-primary">Login</button></a>
+            <a href="/register"
+              ><button class="btn btn-primary margin-lr-p5rem">
+                Register
+              </button></a
+            >
+            <a href="/users/new"
+              ><button class="btn btn-primary">Add article</button></a
+            >
+            <a href="/login"
+              ><button class="btn btn-primary">my Article</button></a
+            >
+          </ul>
+        </nav>
+        <% }%>
+      </div>
+    </header>
+  </body>
+</html>

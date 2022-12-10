@@ -1,0 +1,23 @@
+<% include partials/header%>
+<section class="bg-color-white-light register-section">
+  <div class="container form--main-div">
+    <!-- form -->
+    <div class="form-div width-100mq">
+      <form class="form" action="/login" method="post">
+        <h1 class="text-center font-size-2-rem font-weight-600">Login</h1>
+        <%if(error){%>
+        <p class="color-red text-center margin-tb-1rem font-size-1p5-rem">
+          <%=error%>
+        </p>
+        <%}%>
+        <label for="">Email</label>
+        <input type="email" name="email" id="" placeholder="email" />
+        <label for="">Password</label>
+        <input type="password" name="password" id="" placeholder="password" />
+        <button class="btn btn-primary center" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<% include partials/footer%>

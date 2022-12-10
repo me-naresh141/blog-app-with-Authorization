@@ -1,0 +1,30 @@
+<% include partials/header %>
+<section class="bg-color-white-light register-section">
+  <div class="container form--main-div">
+    <!-- form -->
+    <div class="form-div width-100mq">
+      <form
+        class="form"
+        action="/register"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <h1 class="text-center font-size-2-rem font-weight-600">Register</h1>
+        <label for="">Name</label>
+        <input type="text" name="name" id="" placeholder="name" />
+        <label for="">Email</label>
+        <input type="email" name="email" id="" placeholder="email" />
+        <label for="">Password</label>
+        <input type="password" name="password" id="" placeholder="password" />
+        <label for="">City</label>
+        <input type="text" name="city" id="" placeholder="city" />
+        <div class="select-image-div">
+          <label for="">Select image <i class="fa-solid fa-camera"></i></label>
+          <input type="file" name="image" id="" />
+        </div>
+        <button class="btn btn-primary center" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+<% include partials/footer%>

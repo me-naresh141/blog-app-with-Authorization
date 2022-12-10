@@ -1,0 +1,38 @@
+<% include partials/header%>
+<section class="bg-color-white-light register-section">
+  <div class="container form--main-div">
+    <!-- form -->
+    <div class="form-div width-100mq">
+      <form class="form" action="/users" method="post">
+        <h1 class="text-center font-size-2-rem font-weight-600">Add Article</h1>
+        <label for="">Title</label>
+        <input
+          type="text"
+          name="title"
+          id=""
+          placeholder="Add a title"
+          required
+        />
+        <label for="">Description</label>
+        <textarea
+          name="description"
+          id="editor1"
+          cols="30"
+          rows="10"
+          required
+          placeholder=" Add a description ..."
+        ></textarea>
+        <label for="">catagory</label>
+        <input
+          type="text"
+          name="catagory"
+          id=""
+          placeholder="catagory"
+          required
+        />
+        <button class="btn btn-primary center" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+<% include partials/footer%>

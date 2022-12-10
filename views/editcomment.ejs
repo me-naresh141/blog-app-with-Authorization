@@ -1,0 +1,24 @@
+<% include partials/header%>
+<section class="bg-color-white-light register-section">
+  <div class="container form--main-div">
+    <!-- form -->
+    <div class="form-div width-100mq">
+      <form class="form" action="/comment/<%=comment.id%>" method="post">
+        <h1 class="text-center font-size-2-rem font-weight-600">
+          Edit comment
+        </h1>
+        <label for="">Comment</label>
+        <input
+          type="text"
+          name="comment"
+          id=""
+          placeholder="Add a title"
+          value="<%=comment.comment%>"
+        />
+
+        <button class="btn btn-primary center" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+<% include partials/footer%>

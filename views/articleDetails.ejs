@@ -1,0 +1,129 @@
+<% include partials/header%>
+    <section class="bg-color-white-light height-full overflow-scroll scroll-none">
+        <%if(error){%>
+            <p class="text-center color-red font-size-2-rem font-weight-600">👋🏽<%=error%>
+            </p>
+            <%}%>
+                <div class="container  flex justify-around flex-colum-mq ">
+
+                    <!-- 1 -->
+                    <div class=" width-30 overflow-scroll scroll-none hight pading-top width-100mq order-mq">
+
+                        <!-- like article div -->
+                        <div class="flex-mq align-center-mq justify-between-mq">
+                            <div class="text-center font-size-2-rem ">
+                                <a class="color-text" title="Article like" href="/users/<%=article._id%>/like"> <i
+                                        class="fa-solid fa-heart"></i></a>
+                                <span>
+                                    <%=article.like.length%>
+                                </span>
+                            </div>
+                            <!-- comment -->
+                            <div class="text-center margin-top-2rem margin-top-mq">
+                                <a title="comments" class=" comment-div font-size-2-rem color-text" href="#"><i
+                                        class="fa-sharp fa-solid fa-comment-sms"></i> <span>
+                                        <%=comments.length%>
+                                    </span></a>
+
+                            </div>
+                        </div>
+                        <!-- comment form -->
+                        <div>
+                            <form action="/users/<%=article.id%>/comments" method="post">
+                                <input type="text" name="comment" id="" placeholder=" write commet✏️...." required />
+                                <input class="border  font-weight-600 color-green" type="submit" />
+                            </form>
+                        </div>
+                        <!-- all comment box -->
+                        <h2>
+                            <%=comments.length%> Comment
+                        </h2>
+                        <%comments.reverse().forEach((com)=>{%>
+                            <div class=" box-shadow margin-tb-p5rem word-wrap overflow-scroll  scroll-none ">
+                                <!-- image div comment -->
+                                <div class="flex margin-tb-p5rem align-center ">
+                                    <!-- image -->
+                                    <a href="">
+                                        <figure class="profile-figure">
+                                            <img class="full-width border-redius" src="/images/<%=com.userId.image%>"
+                                                alt="profile-img" />
+                                        </figure>
+                                    </a>
+                                    <!-- image name -->
+                                    <div class="flex flex-direction-column margin-lr-p5rem">
+                                        <span class="font-weight-600 text-captilize color-text">
+                                            <%=com.userId.name%>
+                                        </span>
+                                        <span class="color-text title">updated on:
+                                            <%=com.userId.updatedAt.toLocaleDateString()%>
+                                        </span>
+                                        <!-- comment name -->
+                                        <div>
+                                            <p>
+                                                <%=com.comment%>
+                                            </p>
+                                            <a class="color-text title" href="/comment/<%=com._id%>/like"><i
+                                                    class="fa-solid fa-thumbs-up"></i></a>
+                                            <span>
+                                                <%=com.like.length%>
+                                            </span>
+                                            <a class="color-text title margin-lr-p5rem" title="Edit"
+                                                href="/comment/<%=com._id%>/edit"><i class="fa-solid fa-pen"></i></a>
+                                            <a class="color-text hover" title="Delete"
+                                                href="/comment/<%=com._id%>/delete"><i
+                                                    class="fa-solid fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <%})%>
+
+
+
+                    </div>
+                    <!-- 2 -->
+                    <div
+                        class="with-60 hight box-shadow overflow-scroll scroll-none margin-top-2rem pading-1rem width-100mq  ">
+                        <div class="flex justify-around align-center">
+                            <div class="width90">
+                                <h2
+                                    class="font-size-2-rem font-weight-600 text-captilize color-green font-size-1-3rem-mq">
+                                    <%=article.title%>
+                                </h2>
+                            </div>
+                            <div class="flex-mq">
+                                <a class="title color-text" title="Edit article" href="/users/<%=article.id%>/edit"><i
+                                        class="fa-solid fa-pen"></i></i></a>
+                                <a class="hover color-text margin-lr-p5rem" title="Delete Article"
+                                    href="/users/<%=article._id%>/delete"><i class="fa-solid fa-trash"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="flex margin-tb-p5rem ">
+                            <!-- image -->
+                            <a title="<%=article.authorId.name%>" href="#">
+                                <figure class="profile-figure">
+                                    <img class="full-width border-redius" src="/images/<%=article.authorId.image%>"
+                                        alt="profile-img" />
+                                </figure>
+                            </a>
+                            <!-- image name -->
+                            <div class="flex flex-direction-column margin-lr-p5rem">
+                                <span class="font-weight-600 text-captilize color-text">
+                                    <%=article.authorId.name%>
+                                </span>
+                                <span>updated on:<%=article.updatedAt.toLocaleDateString()%></span>
+
+                            </div>
+
+
+                        </div>
+                        <p class="line-height font-size-1p5-rem font-size-1rem-mq">
+                            <%=article.description%>
+                        </p>
+
+                    </div>
+                </div>
+    </section>
+    <% include partials/footer%>
